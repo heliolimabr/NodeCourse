@@ -1,0 +1,11 @@
+[0;1;32m●[0m mysql.service - MySQL Community Server
+   Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+   Active: [0;1;32mactive (running)[0m since Dom 2017-09-03 12:25:20 BRT; 1min 44s ago
+  Process: 25392 ExecStartPost=/usr/share/mysql/mysql-systemd-start post (code=exited, status=0/SUCCESS)
+  Process: 25383 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+ Main PID: 25391 (mysqld)
+   CGroup: /system.slice/mysql.service
+           └─25391 /usr/sbin/mysqld
+
+Set 03 12:25:19 Helio-Ubuntu systemd[1]: Starting MySQL Community Server...
+Set 03 12:25:20 Helio-Ubuntu systemd[1]: Started MySQL Community Server.
