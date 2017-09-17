@@ -6,16 +6,16 @@
 		<title>Portal de notícias</title>
 		
 		<!-- JQuery -->
-		<script src="js/jquery-2.2.1.js"></script>
+		<script src="/js/jquery-2.2.1.js"></script>
 
 		<!-- bootstrap - link cdn -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	
 		<!-- incluindo css -->
-		<link href="css/style.css" rel="stylesheet">
+		<link href="/css/style.css" rel="stylesheet">
 
 		<!-- favicon -->
-		<link rel="shortcut icon" href="images/favicon.ico" />
+		<link rel="shortcut icon" href="/images/favicon.ico" />
 	</head>
 
 	<body>
@@ -30,7 +30,7 @@
 						<span class="icon-bar"></span>
 					</button>
 					
-					<img src="images/logo.png" />
+					<img src="/images/logo.png" />
 				</div>
 
 				<div id="navbar" class="navbar-collapse collapse">
@@ -44,42 +44,45 @@
 
 	    <div class="container">
 		
+			<% if(errosValidacao.length > 0){ %>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="alert alert-danger">
 						<strong>Atenção!</strong>
 						<ul>
-							<li>Título é obrigatório</li>
-							<li>Resumo é obrigatório</li>
+							<% for(var i = 0; i< errosValidacao.length; i++){ %>
+							<li><%= errosValidacao[i].msg %></li>
+							<% } %>
 						</ul>
 					</div>
 				</div>
 			</div>
+			<% } %>
 	    	<div class="row">
 	    		<div class="col-md-12">
-	    			<form>
+	    			<form action="/noticias/salvar" method="post">
 						<div class="form-group">
 							<label for="titulo">Título:</label>
 							<input type="text" class="form-control" id="titulo" name="titulo">
 						</div>
 
 						<div class="form-group">
-							<label for="pwd">Resumo:</label>
+							<label for="resumo">Resumo:</label>
 							<input type="text" class="form-control" id="resumo" name="resumo">
 						</div>
 						
 						<div class="form-group">
-							<label for="pwd">Autor:</label>
+							<label for="autor">Autor:</label>
 							<input type="text" class="form-control" id="autor" name="autor">
 						</div>
 
 						<div class="form-group">
-							<label for="pwd">Data:</label>
+							<label for="data_noticia">Data:</label>
 							<input type="date" class="form-control" id="data_noticia" name="data_noticia">
 						</div>
 
 						<div class="form-group">
-							<label for="pwd">Notícia:</label>
+							<label for="noticia">Notícia:</label>
 							<textarea class="form-control" id="noticia" name="noticia"></textarea>
 						</div>
 
