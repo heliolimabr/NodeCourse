@@ -2,6 +2,8 @@
 var app = require('./config/server');
 
 /* parametrizar a porta de escuta */
-app.listen(8080, function(){
+var server = app.listen(8080, function(){
     console.log('Servidor online');
 });
+
+require('socket.io').listen(server);
